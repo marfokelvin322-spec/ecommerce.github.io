@@ -18,8 +18,8 @@
       <label for="pageSearchInput">Find on page:</label>
       <input type="search" id="pageSearchInput" class="page-search-input" placeholder="Search this page…" aria-label="Search text on this page">
       <button id="pageSearchBtn" class="page-search-btn" aria-label="Search">Search</button>
-      <button id="pageSearchClear" class="page-search-btn" style="background:transparent;border:1px solid rgba(255,255,255,0.2);" aria-label="Clear search">Clear</button>
-      <span id="searchStatus" style="color:var(--blue-200);font-size:0.8rem;margin-left:8px;" aria-live="polite"></span>
+      <button id="pageSearchClear" class="page-search-btn page-search-clear" aria-label="Clear search">Clear</button>
+      <span id="searchStatus" class="page-search-status" aria-live="polite"></span>
     </div>
   </div>
 
@@ -63,59 +63,51 @@
     <section class="section">
       <div class="container">
         <!-- Product Detail Layout -->
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-bottom:64px;">
+        <div class="product-detail-grid">
 
           <!-- Left: Image & Media -->
           <div>
             <!-- Main product image — uploaded S24 photo -->
-            <div style="background:var(--blue-50);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-md);border:1px solid var(--grey-100);margin-bottom:16px;height:380px;display:flex;align-items:center;justify-content:center;">
+            <div class="product-media">
               <img id="mainProductImg"
                 src="images/s24 pic.jpg"
                 alt="Samsung Galaxy S24 Ultra — Titanium Black with S Pen"
-                style="max-width:100%;max-height:100%;object-fit:contain;padding:12px;">
+                class="main-product-img">
             </div>
 
             <!-- Thumbnail row — 4 real S24 Ultra views -->
-            <div style="display:flex;gap:10px;margin-bottom:20px;">
+            <div class="thumb-row">
 
               <!-- Thumb 1: Full device (uploaded photo) — active by default -->
-              <div style="flex:1;border-radius:var(--radius-md);overflow:hidden;border:2px solid var(--blue-400);cursor:pointer;height:86px;background:var(--blue-50);display:flex;align-items:center;justify-content:center;"
-                tabindex="0" role="button" aria-label="View full device"
+              <div tabindex="0" role="button" aria-label="View full device" class="thumb-item active"
                 onclick="switchImg(this,'images/s24_pic.jpg','Samsung Galaxy S24 Ultra — Full device with S Pen')">
-                <img src="images/s24 pic.jpg" alt="Full device" style="max-width:100%;max-height:100%;object-fit:contain;padding:4px;">
+                <img src="images/s24 pic.jpg" alt="Full device">
               </div>
 
               <!-- Thumb 2: S24 Ultra camera system close-up -->
-              <div style="flex:1;border-radius:var(--radius-md);overflow:hidden;border:1.5px solid var(--grey-100);cursor:pointer;height:86px;background:var(--blue-50);display:flex;align-items:center;justify-content:center;"
-                tabindex="0" role="button" aria-label="View camera system"
+              <div tabindex="0" role="button" aria-label="View camera system" class="thumb-item"
                 onclick="switchImg(this,'https://images.unsplash.com/photo-17054301','Samsung Galaxy S24 Ultra — 200MP camera system')">
-                <img src="images/S 24 2.jpg"
-                  alt="S24 Ultra camera system" style="width:100%;height:100%;object-fit:cover;">
+                <img src="images/S 24 2.jpg" alt="S24 Ultra camera system" class="cover">
               </div>
 
               <!-- Thumb 3: S24 Ultra display / UI interface -->
-              <div style="flex:1;border-radius:var(--radius-md);overflow:hidden;border:1.5px solid var(--grey-100);cursor:pointer;height:86px;background:var(--blue-50);display:flex;align-items:center;justify-content:center;"
-                tabindex="0" role="button" aria-label="View display interface"
+              <div tabindex="0" role="button" aria-label="View display interface" class="thumb-item"
                 onclick="switchImg(this,'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=85','Samsung Galaxy S24 Ultra — AMOLED display interface')">
-                <img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?w=150&q=75"
-                  alt="S24 Ultra display UI" style="width:100%;height:100%;object-fit:cover;">
+                <img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?w=150&q=75" alt="S24 Ultra display UI" class="cover">
               </div>
 
               <!-- Thumb 4: S Pen writing close-up — unique angle -->
-              <div style="flex:1;border-radius:var(--radius-md);overflow:hidden;border:1.5px solid var(--grey-100);cursor:pointer;height:86px;background:var(--blue-50);display:flex;align-items:center;justify-content:center;"
-                tabindex="0" role="button" aria-label="View S Pen feature"
+              <div tabindex="0" role="button" aria-label="View S Pen feature" class="thumb-item"
                 onclick="switchImg(this,'https://images.unsplash.com/photo-1533228100845-08145b01de14?w=600&q=85','Samsung Galaxy S24 Ultra — S Pen precision writing')">
-                <img src="https://images.unsplash.com/photo-1533228100845-08145b01de14?w=150&q=75"
-                  alt="S Pen close-up" style="width:100%;height:100%;object-fit:cover;">
+                <img src="https://images.unsplash.com/photo-1533228100845-08145b01de14?w=150&q=75" alt="S Pen close-up" class="cover">
               </div>
 
             </div>
 
             <!-- Product Video — same height as main image (380px) -->
-            <div style="margin-top:4px;">
-              <h3 style="font-family:var(--font-display);font-size:0.9rem;font-weight:700;color:var(--blue-800);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.06em;">Product Video</h3>
+            <div class="product-video">
+              <h3 class="product-video-title">Product Video</h3>
               <video controls
-                style="width:100%;height:380px;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);object-fit:cover;background:#000;"
                 aria-label="Samsung Galaxy S24 Ultra product video"
                 poster="images/s24 pic.jpg">
                 <source src="images/s24.mp4" type="video/mp4">
@@ -126,39 +118,39 @@
 
           <!-- Right: Info -->
           <div>
-            <span class="product-card-badge sale" style="position:static;display:inline-block;margin-bottom:12px;">11% OFF</span>
-            <h1 style="font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--blue-900);letter-spacing:-0.02em;margin-bottom:8px;">Samsung Galaxy S24 Ultra</h1>
-            <div class="stars" aria-label="4.8 out of 5 stars" style="font-size:1rem;margin-bottom:4px;">★★★★★</div>
-            <p style="color:var(--grey-300);font-size:0.875rem;margin-bottom:20px;">4.8/5 · 312 reviews</p>
+            <span class="product-card-badge sale product-badge-inline">11% OFF</span>
+            <h1 class="product-title">Samsung Galaxy S24 Ultra</h1>
+            <div class="stars product-stars" aria-label="4.8 out of 5 stars">★★★★★</div>
+            <p class="product-reviews">4.8/5 · 312 reviews</p>
 
-            <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
-              <span style="font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--blue-500);">GH₵5,499</span>
-              <span style="color:var(--grey-300);font-size:1.1rem;text-decoration:line-through;">GH₵6,200</span>
-              <span style="background:rgba(239,68,68,.1);color:var(--danger);font-family:var(--font-display);font-size:0.8rem;font-weight:700;padding:4px 10px;border-radius:100px;">Save GH₵701</span>
+            <div class="price-row">
+              <span class="price-current">GH₵5,499</span>
+              <span class="price-old">GH₵6,200</span>
+              <span class="save-pill">Save GH₵701</span>
             </div>
 
-            <p style="color:var(--grey-700);line-height:1.7;margin-bottom:24px;">
+            <p class="product-desc">
               The Samsung Galaxy S24 Ultra is Samsung's most powerful flagship — featuring a massive 6.8-inch Dynamic AMOLED 2X display, a Snapdragon 8 Gen 3 processor, a professional-grade 200MP quad-camera system, a built-in titanium S Pen, and 45W fast charging. Built for power users who demand the absolute best.
             </p>
 
             <!-- Specs -->
-            <div style="background:var(--blue-50);border-radius:var(--radius-md);padding:20px;margin-bottom:24px;border:1px solid var(--blue-100);">
-              <h3 style="font-family:var(--font-display);font-size:0.75rem;font-weight:700;color:var(--blue-600);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px;">Key Specs</h3>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-                <div style="font-size:0.875rem;"><span style="color:var(--grey-300)">Display: </span><strong>6.8" Dynamic AMOLED 2X</strong></div>
-                <div style="font-size:0.875rem;"><span style="color:var(--grey-300)">CPU: </span><strong>Snapdragon 8 Gen 3</strong></div>
-                <div style="font-size:0.875rem;"><span style="color:var(--grey-300)">RAM: </span><strong>12GB</strong></div>
-                <div style="font-size:0.875rem;"><span style="color:var(--grey-300)">Storage: </span><strong>256GB / 512GB / 1TB</strong></div>
-                <div style="font-size:0.875rem;"><span style="color:var(--grey-300)">Camera: </span><strong>200MP Quad Camera</strong></div>
-                <div style="font-size:0.875rem;"><span style="color:var(--grey-300)">Battery: </span><strong>5000mAh · 45W</strong></div>
-                <div style="font-size:0.875rem;"><span style="color:var(--grey-300)">S Pen: </span><strong>Built-in</strong></div>
-                <div style="font-size:0.875rem;"><span style="color:var(--grey-300)">OS: </span><strong>Android 14 · One UI 6.1</strong></div>
+            <div class="specs-box">
+              <h3 class="specs-title">Key Specs</h3>
+              <div class="specs-grid">
+                <div class="spec-item"><span>Display: </span><strong>6.8" Dynamic AMOLED 2X</strong></div>
+                <div class="spec-item"><span>CPU: </span><strong>Snapdragon 8 Gen 3</strong></div>
+                <div class="spec-item"><span>RAM: </span><strong>12GB</strong></div>
+                <div class="spec-item"><span>Storage: </span><strong>256GB / 512GB / 1TB</strong></div>
+                <div class="spec-item"><span>Camera: </span><strong>200MP Quad Camera</strong></div>
+                <div class="spec-item"><span>Battery: </span><strong>5000mAh · 45W</strong></div>
+                <div class="spec-item"><span>S Pen: </span><strong>Built-in</strong></div>
+                <div class="spec-item"><span>OS: </span><strong>Android 14 · One UI 6.1</strong></div>
               </div>
             </div>
 
             <!-- Add to cart -->
-            <div style="display:flex;gap:12px;margin-bottom:16px;">
-              <button class="btn btn-primary btn-lg" style="flex:1"
+            <div class="add-to-cart-row">
+              <button class="btn btn-primary btn-lg flex-1"
                 onclick="addToCart('s24u','Samsung Galaxy S24 Ultra',5499,'images/s24_pic.jpg')"
                 aria-label="Add Samsung Galaxy S24 Ultra to cart">
                 🛒 Add to Cart
@@ -167,11 +159,11 @@
             </div>
 
             <!-- Trust badges -->
-            <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:16px;">
-              <span style="font-size:0.8rem;color:var(--grey-500);display:flex;align-items:center;gap:4px;">✅ Genuine product</span>
-              <span style="font-size:0.8rem;color:var(--grey-500);display:flex;align-items:center;gap:4px;">🔒 Secure checkout</span>
-              <span style="font-size:0.8rem;color:var(--grey-500);display:flex;align-items:center;gap:4px;">🚀 Ships today</span>
-              <span style="font-size:0.8rem;color:var(--grey-500);display:flex;align-items:center;gap:4px;">🔄 14-day returns</span>
+            <div class="trust-badges">
+              <span>✅ Genuine product</span>
+              <span>🔒 Secure checkout</span>
+              <span>🚀 Ships today</span>
+              <span>🔄 14-day returns</span>
             </div>
           </div>
         </div>
@@ -182,45 +174,45 @@
           <h2 class="section-title">More <span>Hot Deals</span></h2>
         </div>
         <div class="product-grid">
-          <article class="product-card" aria-label="iPhone 15 Pro deal" style="--img-h:210px">
+          <article class="product-card product-card--img-210" aria-label="iPhone 15 Pro deal">
             <span class="product-card-badge sale">-9%</span>
-            <div class="product-card-image" style="height:210px;overflow:hidden;">
-              <img src="https://images.unsplash.com/photo-1632661674596-df8be070a5c5?w=400&q=80" alt="iPhone 15 Pro" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;">
+            <div class="product-card-image">
+              <img src="https://images.unsplash.com/photo-1632661674596-df8be070a5c5?w=400&q=80" alt="iPhone 15 Pro" loading="lazy" class="card-img-cover">
             </div>
             <div class="product-card-body">
               <div class="product-card-category">Smartphones</div>
               <h3 class="product-card-name">iPhone 15 Pro</h3>
               <div class="product-card-price"><span class="price-current">GH₵7,500</span><span class="price-old">GH₵8,200</span></div>
               <div class="product-card-footer">
-                <button class="btn btn-primary btn-sm" style="flex:1" onclick="addToCart('ip15','iPhone 15 Pro',7500,'https://images.unsplash.com/photo-1632661674596-df8be070a5c5?w=80&q=60')" aria-label="Add iPhone 15 Pro to cart">Add to Cart</button>
+                <button class="btn btn-primary btn-sm flex-1" onclick="addToCart('ip15','iPhone 15 Pro',7500,'https://images.unsplash.com/photo-1632661674596-df8be070a5c5?w=80&q=60')" aria-label="Add iPhone 15 Pro to cart">Add to Cart</button>
               </div>
             </div>
           </article>
           <article class="product-card" aria-label="MacBook Air M2 deal">
             <span class="product-card-badge sale">-12%</span>
-            <div class="product-card-image" style="height:210px;overflow:hidden;">
-              <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&q=80" alt="MacBook Air M2" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;">
+            <div class="product-card-image">
+              <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&q=80" alt="MacBook Air M2" loading="lazy" class="card-img-cover">
             </div>
             <div class="product-card-body">
               <div class="product-card-category">Laptops</div>
               <h3 class="product-card-name">MacBook Air M2</h3>
               <div class="product-card-price"><span class="price-current">GH₵12,500</span><span class="price-old">GH₵14,200</span></div>
               <div class="product-card-footer">
-                <button class="btn btn-primary btn-sm" style="flex:1" onclick="addToCart('mba','MacBook Air M2',12500,'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=80&q=60')" aria-label="Add MacBook Air M2 to cart">Add to Cart</button>
+                <button class="btn btn-primary btn-sm flex-1" onclick="addToCart('mba','MacBook Air M2',12500,'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=80&q=60')" aria-label="Add MacBook Air M2 to cart">Add to Cart</button>
               </div>
             </div>
           </article>
           <article class="product-card" aria-label="Sony WH-1000XM5 deal">
             <span class="product-card-badge sale">-16%</span>
-            <div class="product-card-image" style="height:210px;overflow:hidden;">
-              <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80" alt="Sony WH-1000XM5 headphones" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;">
+            <div class="product-card-image">
+              <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80" alt="Sony WH-1000XM5 headphones" loading="lazy" class="card-img-cover">
             </div>
             <div class="product-card-body">
               <div class="product-card-category">Accessories</div>
               <h3 class="product-card-name">Sony WH-1000XM5</h3>
               <div class="product-card-price"><span class="price-current">GH₵1,850</span><span class="price-old">GH₵2,200</span></div>
               <div class="product-card-footer">
-                <button class="btn btn-primary btn-sm" style="flex:1" onclick="addToCart('sony','Sony WH-1000XM5',1850,'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=80&q=60')" aria-label="Add Sony WH-1000XM5 to cart">Add to Cart</button>
+                <button class="btn btn-primary btn-sm flex-1" onclick="addToCart('sony','Sony WH-1000XM5',1850,'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=80&q=60')" aria-label="Add Sony WH-1000XM5 to cart">Add to Cart</button>
               </div>
             </div>
           </article>
@@ -233,7 +225,7 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <a href="index.html" class="nav-logo" style="margin-bottom:12px;display:inline-flex" aria-label="KelStore home">
+          <a href="index.html" class="nav-logo footer-logo" aria-label="KelStore home">
             <div class="nav-logo-icon" aria-hidden="true">⚡</div>
             <span class="nav-logo-text">Kel<span>Store</span></span>
           </a>
@@ -250,22 +242,20 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <!-- <script src="js/main.js"></script>
   <script>
     // Thumbnail switcher — updates main image and highlights active thumb
     function switchImg(el, src, alt) {
       document.getElementById('mainProductImg').src = src;
       document.getElementById('mainProductImg').alt = alt;
-      document.querySelectorAll('.thumb-item').forEach(t => {
-        t.style.border = '1.5px solid var(--grey-100)';
-      });
-      el.style.border = '2px solid var(--blue-400)';
+      document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
     }
 
-    // Mark all thumb containers so JS can target them
-    document.querySelectorAll('[role="button"][aria-label]').forEach(el => {
+    // Ensure thumb containers inside the thumb-row have the thumb-item class
+    document.querySelectorAll('.thumb-row [role="button"][aria-label]').forEach(el => {
       el.classList.add('thumb-item');
     });
-  </script>
+  </script> -->
 </body>
 </html>

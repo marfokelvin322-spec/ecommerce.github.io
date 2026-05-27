@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About KelStore — Ghana's trusted tech and electronics retailer. Learn about our story, values, and commitment to accessibility.">
+  <title>About Us — KelStore</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="page-search-bar" role="search" aria-label="Search page content">
+    <div class="container">
+      <label for="pageSearchInput">Find on page:</label>
+      <input type="search" id="pageSearchInput" class="page-search-input" placeholder="Search this page…" aria-label="Search text on this page">
+      <button id="pageSearchBtn" class="page-search-btn" aria-label="Search">Search</button>
+      <button id="pageSearchClear" class="page-search-btn" style="background:transparent;border:1px solid rgba(255,255,255,0.2);" aria-label="Clear">Clear</button>
+      <span id="searchStatus" style="color:var(--blue-200);font-size:0.8rem;margin-left:8px;" aria-live="polite"></span>
+    </div>
+  </div>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" aria-label="KelStore Home">
+        <div class="nav-logo-icon" aria-hidden="true">⚡</div>
+        <span class="nav-logo-text">Kel<span>Store</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="product-detail.html">Deals</a></li>
+        <li><a href="about.html" class="active" aria-current="page">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div class="nav-search" role="search" aria-label="Search products">
+          <label for="navSearchInput" class="sr-only">Search</label>
+          <input type="search" id="navSearchInput" placeholder="Search products…" aria-label="Search products">
+          <button aria-label="Submit search">🔍</button>
+        </div>
+        <a href="cart.html" class="btn-cart" aria-label="View cart">
+          🛒 Cart<span class="cart-badge">0</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <div class="page-hero">
+      <div class="container">
+        <h1 class="page-hero-title">About KelStore</h1>
+        <p class="page-hero-breadcrumb"><a href="index.html">Home</a> › About</p>
+      </div>
+    </div>
+
+    <!-- Our Story -->
+    <section class="section" aria-labelledby="story-title">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+          <div>
+            <span class="section-tag">Our Story</span>
+            <h2 class="section-title" id="story-title">Built for <span>Ghana's</span> Tech Lovers</h2>
+            <p style="color:var(--grey-700);line-height:1.8;margin:16px 0;">
+              KelStore was founded with a simple mission: to give Ghanaians access to the latest and greatest in technology at honest prices — with zero compromise on quality.
+            </p>
+            <p style="color:var(--grey-700);line-height:1.8;margin-bottom:16px;">
+              We started as a small operation in Accra and have grown into a trusted name across Ghana. From the newest iPhone to the latest smartwatches and laptops, every product we sell is 100% genuine and backed by our quality guarantee.
+            </p>
+            <p style="color:var(--grey-700);line-height:1.8;">
+              Our mentor organisation is <strong>Telefonika</strong> — one of Europe's most respected online electronics retailers — whose customer-first approach, transparent pricing, and logistics excellence inspire how we operate every day.
+            </p>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="feature-card" style="text-align:center;">
+              <div style="font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--blue-500);">2,400+</div>
+              <div style="color:var(--grey-500);font-size:0.875rem;">Products</div>
+            </div>
+            <div class="feature-card" style="text-align:center;">
+              <div style="font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--blue-500);">18K+</div>
+              <div style="color:var(--grey-500);font-size:0.875rem;">Happy Customers</div>
+            </div>
+            <div class="feature-card" style="text-align:center;">
+              <div style="font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--blue-500);">16</div>
+              <div style="color:var(--grey-500);font-size:0.875rem;">Regions Served</div>
+            </div>
+            <div class="feature-card" style="text-align:center;">
+              <div style="font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--blue-500);">4.8★</div>
+              <div style="color:var(--grey-500);font-size:0.875rem;">Average Rating</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="section section-alt" aria-labelledby="values-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Our Values</span>
+          <h2 class="section-title" id="values-title">What We <span>Stand For</span></h2>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">🤝</div>
+            <h3 class="feature-title">Trust</h3>
+            <p class="feature-desc">Every product is verified genuine. No fakes, no imitations — ever.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">💰</div>
+            <h3 class="feature-title">Honest Pricing</h3>
+            <p class="feature-desc">No hidden charges. The price you see is the price you pay.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">♿</div>
+            <h3 class="feature-title">Inclusivity</h3>
+            <p class="feature-desc">Our website is designed to be accessible to everyone, regardless of ability.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">🌱</div>
+            <h3 class="feature-title">Sustainability</h3>
+            <p class="feature-desc">We use eco-friendly packaging and participate in e-waste recycling initiatives.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mentor Organisation -->
+    <section class="section" aria-labelledby="mentor-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Mentor Organisation</span>
+          <h2 class="section-title" id="mentor-title">Inspired by <span>Telefonika</span></h2>
+          <p class="section-subtitle">KelStore is modelled after Telefonika, a leading European e-commerce electronics retailer known for competitive pricing, fast logistics and exceptional customer service.</p>
+        </div>
+        <div style="background:var(--blue-50);border-radius:var(--radius-xl);padding:40px;border:1px solid var(--blue-100);">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+            <div>
+              <h3 style="font-family:var(--font-display);font-weight:700;color:var(--blue-800);margin-bottom:12px;">What we learned from Telefonika</h3>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+                <li style="display:flex;gap:10px;align-items:flex-start;font-size:0.9rem;color:var(--grey-700);">
+                  <span style="color:var(--blue-400);font-weight:700;">✓</span> Customer-first product discovery and filtering
+                </li>
+                <li style="display:flex;gap:10px;align-items:flex-start;font-size:0.9rem;color:var(--grey-700);">
+                  <span style="color:var(--blue-400);font-weight:700;">✓</span> Transparent product specifications and honest reviews
+                </li>
+                <li style="display:flex;gap:10px;align-items:flex-start;font-size:0.9rem;color:var(--grey-700);">
+                  <span style="color:var(--blue-400);font-weight:700;">✓</span> Fast, trackable delivery with proactive communication
+                </li>
+                <li style="display:flex;gap:10px;align-items:flex-start;font-size:0.9rem;color:var(--grey-700);">
+                  <span style="color:var(--blue-400);font-weight:700;">✓</span> Secure checkout with PCI DSS payment standards
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 style="font-family:var(--font-display);font-weight:700;color:var(--blue-800);margin-bottom:12px;">Our adaptation for Ghana</h3>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+                <li style="display:flex;gap:10px;align-items:flex-start;font-size:0.9rem;color:var(--grey-700);">
+                  <span style="color:var(--success);font-weight:700;">→</span> Mobile Money (MoMo) payment integration
+                </li>
+                <li style="display:flex;gap:10px;align-items:flex-start;font-size:0.9rem;color:var(--grey-700);">
+                  <span style="color:var(--success);font-weight:700;">→</span> Prices in Ghanaian Cedis (GH₵)
+                </li>
+                <li style="display:flex;gap:10px;align-items:flex-start;font-size:0.9rem;color:var(--grey-700);">
+                  <span style="color:var(--success);font-weight:700;">→</span> Nationwide delivery across all 16 regions
+                </li>
+                <li style="display:flex;gap:10px;align-items:flex-start;font-size:0.9rem;color:var(--grey-700);">
+                  <span style="color:var(--success);font-weight:700;">→</span> Local WhatsApp customer support
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Accessibility Statement -->
+    <section class="section section-alt" aria-labelledby="accessibility-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Accessibility</span>
+          <h2 class="section-title" id="accessibility-title">Our Accessibility <span>Commitment</span></h2>
+          <p class="section-subtitle">KelStore is committed to ensuring our website is accessible to all users, including those with disabilities.</p>
+        </div>
+
+        <div style="background:var(--white);border-radius:var(--radius-xl);padding:40px;box-shadow:var(--shadow-sm);border:1px solid var(--grey-100);">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+            <div>
+              <h3 style="font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--blue-800);margin-bottom:16px;">
+                ♿ Accessibility Features Implemented
+              </h3>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;">
+                <li style="display:flex;gap:12px;align-items:flex-start;">
+                  <span style="background:var(--blue-100);border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:var(--blue-600);flex-shrink:0;">1</span>
+                  <div>
+                    <strong style="font-family:var(--font-display);font-size:0.9rem;color:var(--blue-800);">Skip to Content Link</strong>
+                    <p style="color:var(--grey-500);font-size:0.825rem;margin-top:3px;">Keyboard users can bypass the navigation and jump directly to main content using the "Skip to main content" link that appears on focus.</p>
+                  </div>
+                </li>
+                <li style="display:flex;gap:12px;align-items:flex-start;">
+                  <span style="background:var(--blue-100);border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:function center;font-size:.75rem;font-weight:700;color:var(--blue-600);flex-shrink:0;justify-content:center">2</span>
+                  <div>
+                    <strong style="font-family:var(--font-display);font-size:0.9rem;color:var(--blue-800);">ARIA Labels & Roles</strong>
+                    <p style="color:var(--grey-500);font-size:0.825rem;margin-top:3px;">All interactive elements, images, and sections have descriptive ARIA labels for screen reader compatibility.</p>
+                  </div>
+                </li>
+                <li style="display:flex;gap:12px;align-items:flex-start;">
+                  <span style="background:var(--blue-100);border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:var(--blue-600);flex-shrink:0;">3</span>
+                  <div>
+                    <strong style="font-family:var(--font-display);font-size:0.9rem;color:var(--blue-800);">High Contrast Support</strong>
+                    <p style="color:var(--grey-500);font-size:0.825rem;margin-top:3px;">The site automatically adapts to high contrast mode using CSS <code>prefers-contrast</code> media query.</p>
+                  </div>
+                </li>
+                <li style="display:flex;gap:12px;align-items:flex-start;">
+                  <span style="background:var(--blue-100);border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:var(--blue-600);flex-shrink:0;">4</span>
+                  <div>
+                    <strong style="font-family:var(--font-display);font-size:0.9rem;color:var(--blue-800);">Reduced Motion Support</strong>
+                    <p style="color:var(--grey-500);font-size:0.825rem;margin-top:3px;">Animations are disabled for users who have enabled <code>prefers-reduced-motion</code> in their system settings.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 style="font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--blue-800);margin-bottom:16px;">
+                📋 Standards We Follow
+              </h3>
+              <div class="alert alert-info" style="margin-bottom:12px;">
+                <strong>WCAG 2.1 Level AA</strong> — We aim to meet Web Content Accessibility Guidelines for all key pages.
+              </div>
+              <div class="alert alert-info" style="margin-bottom:12px;">
+                <strong>Semantic HTML5</strong> — Proper use of headings, landmarks, lists, and form labels.
+              </div>
+              <div class="alert alert-info">
+                <strong>Keyboard Navigation</strong> — Full keyboard navigability throughout the site with visible focus indicators.
+              </div>
+
+              <div style="margin-top:24px;padding:20px;background:var(--blue-50);border-radius:var(--radius-md);border:1px solid var(--blue-100);">
+                <h4 style="font-family:var(--font-display);font-size:0.875rem;font-weight:700;color:var(--blue-700);margin-bottom:8px;">Report an Issue</h4>
+                <p style="color:var(--grey-500);font-size:0.825rem;line-height:1.6;">If you experience any accessibility barriers on our site, please contact us at <a href="contact.html" style="color:var(--blue-400);font-weight:600;">our contact page</a>. We commit to addressing issues within 48 hours.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="nav-logo" style="margin-bottom:12px;display:inline-flex" aria-label="KelStore home">
+            <div class="nav-logo-icon" aria-hidden="true">⚡</div>
+            <span class="nav-logo-text">Kel<span>Store</span></span>
+          </a>
+          <p class="footer-brand-desc">Ghana's premium tech and electronics store.</p>
+        </div>
+        <div><h3 class="footer-heading">Shop</h3><ul class="footer-links"><li><a href="products.html">All Products</a></li></ul></div>
+        <div><h3 class="footer-heading">Company</h3><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div><h3 class="footer-heading">Help</h3><ul class="footer-links"><li><a href="#">Returns</a></li><li><a href="#">Privacy</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 KelStore. All rights reserved.</p>
+        <p>🔒 SSL Secured · PCI DSS Compliant</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <style>
+    @media (max-width: 768px) {
+      div[style*="grid-template-columns:1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+</body>
+</html>

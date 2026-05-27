@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your shopping cart at KelStore — review your items and proceed to checkout.">
+  <title>Shopping Cart — KelStore</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="page-search-bar" role="search" aria-label="Search page content">
+    <div class="container">
+      <label for="pageSearchInput">Find on page:</label>
+      <input type="search" id="pageSearchInput" class="page-search-input" placeholder="Search this page…" aria-label="Search text on this page">
+      <button id="pageSearchBtn" class="page-search-btn" aria-label="Search">Search</button>
+      <button id="pageSearchClear" class="page-search-btn" style="background:transparent;border:1px solid rgba(255,255,255,0.2);" aria-label="Clear">Clear</button>
+      <span id="searchStatus" style="color:var(--blue-200);font-size:0.8rem;margin-left:8px;" aria-live="polite"></span>
+    </div>
+  </div>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" aria-label="KelStore Home">
+        <div class="nav-logo-icon" aria-hidden="true">⚡</div>
+        <span class="nav-logo-text">Kel<span>Store</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="product-detail.html">Deals</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div class="nav-search" role="search" aria-label="Search products">
+          <label for="navSearchInput" class="sr-only">Search</label>
+          <input type="search" id="navSearchInput" placeholder="Search products…" aria-label="Search products">
+          <button aria-label="Submit search">🔍</button>
+        </div>
+        <a href="cart.html" class="btn-cart" aria-label="View cart" aria-current="page" style="background:var(--blue-400)">
+          🛒 Cart<span class="cart-badge">0</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <div class="page-hero">
+      <div class="container">
+        <h1 class="page-hero-title">Your Cart 🛒</h1>
+        <p class="page-hero-breadcrumb"><a href="index.html">Home</a> › Cart</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+
+        <!-- Empty cart message -->
+        <div id="cartEmpty" style="text-align:center;padding:80px 0;">
+          <div style="font-size:5rem;margin-bottom:20px;" aria-hidden="true">🛒</div>
+          <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:var(--blue-900);margin-bottom:10px;">Your cart is empty</h2>
+          <p style="color:var(--grey-500);margin-bottom:28px;">Add some products and they will appear here.</p>
+          <a href="products.html" class="btn btn-primary btn-lg">Browse Products →</a>
+        </div>
+
+        <!-- Cart table + summary -->
+        <div id="cartTableWrap" style="display:none;">
+          <div style="display:grid;grid-template-columns:2fr 1fr;gap:32px;align-items:start;">
+
+            <!-- Cart Items Table -->
+            <div>
+              <table class="cart-table" aria-label="Cart items">
+                <thead>
+                  <tr>
+                    <th scope="col">Item</th>
+                    <th scope="col">Product</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Total</th>
+                    <th scope="col"><span class="sr-only">Remove</span></th>
+                  </tr>
+                </thead>
+                <tbody id="cartTableBody">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+
+              <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;">
+                <a href="products.html" class="btn btn-secondary">← Continue Shopping</a>
+                <button class="btn" style="background:var(--grey-100);color:var(--grey-700);"
+                  onclick="cart.length=0;saveCart();renderCart();"
+                  aria-label="Clear entire cart">Clear Cart</button>
+              </div>
+
+              <!-- Promo code -->
+              <div style="margin-top:24px;background:var(--blue-50);border-radius:var(--radius-md);padding:20px;border:1px solid var(--blue-100);">
+                <h3 style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:var(--blue-700);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px;">Promo Code</h3>
+                <div style="display:flex;gap:10px;">
+                  <label for="promoCode" class="sr-only">Enter promo code</label>
+                  <input type="text" id="promoCode" class="form-input" style="max-width:260px" placeholder="Enter code e.g. KELSTORE10" aria-label="Promo code">
+                  <button class="btn btn-primary" onclick="applyPromo()" aria-label="Apply promo code">Apply</button>
+                </div>
+                <div id="promoMsg" aria-live="polite" style="margin-top:8px;font-size:0.875rem;color:var(--success);"></div>
+              </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div id="cartSummaryWrap">
+              <div class="order-summary" role="region" aria-label="Order summary">
+                <h2 class="order-summary-title">Order Summary</h2>
+                <div class="order-row">
+                  <span>Subtotal</span>
+                  <span id="summarySubtotal">GH₵0.00</span>
+                </div>
+                <div class="order-row">
+                  <span>Shipping</span>
+                  <span id="summaryShipping">GH₵30.00</span>
+                </div>
+                <div class="order-row" style="color:var(--success);font-size:0.85rem;">
+                  <span>🚚 Free delivery on orders over GH₵500</span>
+                </div>
+                <div class="order-row total">
+                  <span>Total</span>
+                  <span id="summaryTotal">GH₵0.00</span>
+                </div>
+
+                <button class="btn btn-primary" style="width:100%;margin-top:20px;padding:16px;"
+                  onclick="checkout()" aria-label="Proceed to checkout">
+                  🔒 Proceed to Checkout
+                </button>
+
+                <div style="margin-top:16px;text-align:center;">
+                  <p style="font-size:0.75rem;color:var(--grey-300);">🔒 SSL Encrypted · Secure Payment</p>
+                  <div style="display:flex;justify-content:center;gap:12px;margin-top:8px;font-size:1.5rem;" aria-label="Accepted payment methods">
+                    <span title="Visa" aria-label="Visa">💳</span>
+                    <span title="Mastercard" aria-label="Mastercard">🏧</span>
+                    <span title="Mobile Money" aria-label="Mobile Money">📲</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="section section-alt" aria-labelledby="trust-title">
+      <div class="container">
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">🔒</div>
+            <h3 class="feature-title">Secure Checkout</h3>
+            <p class="feature-desc">256-bit SSL encryption. Your payment details are fully protected.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">✅</div>
+            <h3 class="feature-title">PCI DSS Compliant</h3>
+            <p class="feature-desc">Our payment systems meet the highest card security standards.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">📲</div>
+            <h3 class="feature-title">Mobile Money</h3>
+            <p class="feature-desc">Pay easily with MTN MoMo, Vodafone Cash or AirtelTigo Money.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">🔄</div>
+            <h3 class="feature-title">Easy Returns</h3>
+            <p class="feature-desc">Changed your mind? Return within 14 days for a full refund.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="nav-logo" style="margin-bottom:12px;display:inline-flex" aria-label="KelStore home">
+            <div class="nav-logo-icon" aria-hidden="true">⚡</div>
+            <span class="nav-logo-text">Kel<span>Store</span></span>
+          </a>
+          <p class="footer-brand-desc">Ghana's premium tech and electronics store.</p>
+        </div>
+        <div><h3 class="footer-heading">Shop</h3><ul class="footer-links"><li><a href="products.html">All Products</a></li></ul></div>
+        <div><h3 class="footer-heading">Company</h3><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div><h3 class="footer-heading">Help</h3><ul class="footer-links"><li><a href="#">Returns</a></li><li><a href="#">Privacy</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 KelStore. All rights reserved.</p>
+        <p>🔒 SSL Secured · PCI DSS Compliant</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    function applyPromo() {
+      const code = document.getElementById('promoCode').value.trim().toUpperCase();
+      const msg = document.getElementById('promoMsg');
+      if (code === 'KELSTORE10') {
+        msg.textContent = '✅ Promo code applied! 10% discount added.';
+        msg.style.color = 'var(--success)';
+      } else {
+        msg.textContent = '❌ Invalid promo code. Try KELSTORE10.';
+        msg.style.color = 'var(--danger)';
+      }
+    }
+
+    function checkout() {
+      showToast('Redirecting to secure checkout…');
+      setTimeout(() => { alert('Checkout integration coming soon! This is a demo.'); }, 1500);
+    }
+
+    // Responsive cart table on mobile
+    window.addEventListener('resize', function() {
+      const wrap = document.getElementById('cartTableWrap');
+      if (!wrap) return;
+      const grid = wrap.querySelector('[style*="grid-template-columns:2fr"]');
+      if (grid) {
+        grid.style.gridTemplateColumns = window.innerWidth < 768 ? '1fr' : '2fr 1fr';
+      }
+    });
+  </script>
+</body>
+</html>

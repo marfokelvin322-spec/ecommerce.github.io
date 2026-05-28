@@ -439,6 +439,114 @@ ul {
   font-size: 1rem;
 }
 
+.btn-cart-active {
+  background: var(--blue-400);
+}
+
+.cart-empty-state {
+  text-align: center;
+  padding: 80px 0;
+}
+
+.cart-empty-icon {
+  font-size: 5rem;
+  margin-bottom: 20px;
+}
+
+.cart-empty-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--blue-900);
+  margin-bottom: 10px;
+}
+
+.cart-empty-copy {
+  color: var(--grey-500);
+  margin-bottom: 28px;
+}
+
+.cart-grid-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.cart-action-row {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-secondary-light {
+  background: var(--grey-100);
+  color: var(--grey-700);
+}
+
+.cart-promo-panel {
+  margin-top: 24px;
+  background: var(--blue-50);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  border: 1px solid var(--blue-100);
+}
+
+.promo-heading {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--blue-700);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.promo-row {
+  display: flex;
+  gap: 10px;
+}
+
+.cart-promo-input {
+  max-width: 260px;
+}
+
+.promo-message {
+  margin-top: 8px;
+  font-size: 0.875rem;
+  color: var(--success);
+}
+
+.order-note-success {
+  color: var(--success);
+  font-size: 0.85rem;
+}
+
+.btn-checkout {
+  width: 100%;
+  margin-top: 20px;
+  padding: 16px;
+}
+
+.checkout-note {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.checkout-copy {
+  font-size: 0.75rem;
+  color: var(--grey-300);
+}
+
+.payment-methods {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+  font-size: 1.5rem;
+}
+
 /* ── Section Headers ─────────────────────── */
 .section-header {
   text-align: center;
